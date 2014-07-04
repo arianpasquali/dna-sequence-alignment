@@ -15,8 +15,8 @@ public class GlobalAlignmentTest
     extends TestCase
 {
 
-    private String sequenceA = "GAATTCAGTTA";
-    private String sequenceB = "GGATCGA";
+    private String sequenceA = "WKVSVDQDTCIGDAICASLCPDVFEMNDEGKAQPKVEVIEDEELYNCAKEAMEACPVSAI"; //Pyrococcus furiosus
+    private String sequenceB = "MKVKLDKDTCIGCGVCASICPDVFEMDDDGKAKVIMEETDLECAKEAAESCPTGSI"; //Thermococcus sibiricus
 
     /**
      * Create the test case
@@ -49,13 +49,13 @@ public class GlobalAlignmentTest
         System.out.println(result);
 
         assertEquals("global:simple",result.getMethodName());
-        assertEquals(5, result.getScore());
+        assertEquals(52, result.getScore());
 
-        assertEquals("AATTCAGTTA",result.getAlignedSequenceA());
-        assertEquals("GA-TC-G--A",result.getAlignedSequenceB());
+        assertEquals("KVSVDQDTCIGDAICASLCPDVFEMNDEGKAQPKVEVI-EDE-ELYNCAKEAMEACP-VSAI",result.getAlignedSequenceA());
+        assertEquals("KVKLDKDTCIGCGVCASICPDVFEMDDDGKA--K--VIME-ETDL-ECAKEAAESCPTGS-I",result.getAlignedSequenceB());
 
-        assertEquals("AATTCAGTTA\n"+
-                     "GA-TC-G--A",result.getAlignment());
+        assertEquals("KVSVDQDTCIGDAICASLCPDVFEMNDEGKAQPKVEVI-EDE-ELYNCAKEAMEACP-VSAI\n"+
+                     "KVKLDKDTCIGCGVCASICPDVFEMDDDGKA--K--VIME-ETDL-ECAKEAAESCPTGS-I",result.getAlignment());
     }
 
     /**
@@ -71,13 +71,13 @@ public class GlobalAlignmentTest
         System.out.println(result);
 
         assertEquals("global:blosum",result.getMethodName());
-        assertEquals(4,result.getScore());
+        assertEquals(14,result.getScore());
 
-        assertEquals("AATTCAGTTA",result.getAlignedSequenceA());
-        assertEquals("----GATCGA",result.getAlignedSequenceB());
+        assertEquals("KVSVDQDTCIGDAICASLCPDVFEMNDEGKAQPKVEVIEDEELYNCAKEAMEACPVSAI",result.getAlignedSequenceA());
+        assertEquals("KVKLDKDTCIGCGVCASICPDVFEMDDDGKA-KVIMEETDLECAKEA--A-ESCPTGSI",result.getAlignedSequenceB());
 
-        assertEquals("AATTCAGTTA\n"+
-                     "----GATCGA",result.getAlignment());
+        assertEquals("KVSVDQDTCIGDAICASLCPDVFEMNDEGKAQPKVEVIEDEELYNCAKEAMEACPVSAI\n"+
+                     "KVKLDKDTCIGCGVCASICPDVFEMDDDGKA-KVIMEETDLECAKEA--A-ESCPTGSI",result.getAlignment());
     }
 
     /**
@@ -92,13 +92,13 @@ public class GlobalAlignmentTest
 
         System.out.println(result);
 
-        assertEquals(12,result.getScore());
+        assertEquals(15,result.getScore());
         assertEquals("global:pam",result.getMethodName());
 
-        assertEquals("AATTCAGTTA",result.getAlignedSequenceA());
-        assertEquals("--GA-TCGA-",result.getAlignedSequenceB());
+        assertEquals("KVSVDQDTCIGDAICASLCPDVFEMNDEGKAQPKVEVIEDEELYNCAKEAMEACPVSAI",result.getAlignedSequenceA());
+        assertEquals("KVKLDKDTCIGCGVCASICPDVFEMDDDGKAKVIMEETDLECA-KEA--A-ESCPTGSI",result.getAlignedSequenceB());
 
-        assertEquals("AATTCAGTTA\n"+
-                     "--GA-TCGA-",result.getAlignment());
+        assertEquals("KVSVDQDTCIGDAICASLCPDVFEMNDEGKAQPKVEVIEDEELYNCAKEAMEACPVSAI\n"+
+                     "KVKLDKDTCIGCGVCASICPDVFEMDDDGKAKVIMEETDLECA-KEA--A-ESCPTGSI",result.getAlignment());
     }
 }

@@ -85,7 +85,6 @@ public abstract class CostMatrix {
             return matrix[ a - 'A'][ b - 'A'];
         } catch (ArrayIndexOutOfBoundsException e) {
             String s = e.getMessage();
-            System.err.println("Unknown symbol: " + (Integer.parseInt(s) + 65));
             return matrix[ 'J' - 'A'][ 'J' - 'A']; // by default, return unknown codon
         }
     }

@@ -15,8 +15,8 @@ public class LocalAlignmentTest
     extends TestCase
 {
 
-    private String sequenceA = "GAATTCAGTTA";
-    private String sequenceB = "GGATCGA";
+    private String sequenceA = "WKVSVDQDTCIGDAICASLCPDVFEMNDEGKAQPKVEVIEDEELYNCAKEAMEACPVSAI"; //Pyrococcus furiosus
+    private String sequenceB = "MKVKLDKDTCIGCGVCASICPDVFEMDDDGKAKVIMEETDLECAKEAAESCPTGSI"; //Thermococcus sibiricus
 
     /**
      * Create the test case
@@ -49,13 +49,13 @@ public class LocalAlignmentTest
         System.out.println(result);
 
         assertEquals("local:simple",result.getMethodName());
-        assertEquals(6, result.getScore());
+        assertEquals(52, result.getScore());
 
-        assertEquals("ATTC-A",result.getAlignedSequenceA());
-        assertEquals("A-TCGA",result.getAlignedSequenceB());
+        assertEquals("KVSVDQDTCIGDAICASLCPDVFEMNDEGKAQPKVEVI-EDE-ELYNCAKEAMEACP-VSAI",result.getAlignedSequenceA());
+        assertEquals("KVKLDKDTCIGCGVCASICPDVFEMDDDGKA--K--VIME-ETDL-ECAKEAAESCPTGS-I",result.getAlignedSequenceB());
 
-        assertEquals("ATTC-A\n"+
-                     "A-TCGA",result.getAlignment());
+        assertEquals("KVSVDQDTCIGDAICASLCPDVFEMNDEGKAQPKVEVI-EDE-ELYNCAKEAMEACP-VSAI\n"+
+                     "KVKLDKDTCIGCGVCASICPDVFEMDDDGKA--K--VIME-ETDL-ECAKEAAESCPTGS-I",result.getAlignment());
     }
 
     /**
@@ -71,13 +71,13 @@ public class LocalAlignmentTest
         System.out.println(result);
 
         assertEquals("local:blosum",result.getMethodName());
-        assertEquals(8,result.getScore());
+        assertEquals(14,result.getScore());
 
-        assertEquals("ATTCA",result.getAlignedSequenceA());
-        assertEquals("ATCGA",result.getAlignedSequenceB());
+        assertEquals("ASLCPDVFEMNDEGKAQPKVEVIEDEELYNCAKEA",result.getAlignedSequenceA());
+        assertEquals("ASICPDVFEMDDDGKA-KVIMEETDLECAKEA--A",result.getAlignedSequenceB());
 
-        assertEquals("ATTCA\n"+
-                     "ATCGA",result.getAlignment());
+        assertEquals("ASLCPDVFEMNDEGKAQPKVEVIEDEELYNCAKEA\n"+
+                     "ASICPDVFEMDDDGKA-KVIMEETDLECAKEA--A",result.getAlignment());
     }
 
     /**
@@ -92,13 +92,13 @@ public class LocalAlignmentTest
 
         System.out.println(result);
 
-        assertEquals(14,result.getScore());
+        assertEquals(15,result.getScore());
         assertEquals("local:pam",result.getMethodName());
 
-        assertEquals("TCAGT",result.getAlignedSequenceA());
-        assertEquals("ATCGA",result.getAlignedSequenceB());
+        assertEquals("S--VDQDTCIGDAICAS",result.getAlignedSequenceA());
+        assertEquals("AKVIMEETDLECAKEAA",result.getAlignedSequenceB());
 
-        assertEquals("TCAGT\n"+
-                     "ATCGA",result.getAlignment());
+        assertEquals("S--VDQDTCIGDAICAS\n"+
+                     "AKVIMEETDLECAKEAA",result.getAlignment());
     }
 }
