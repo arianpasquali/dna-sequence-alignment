@@ -5,8 +5,8 @@ Part of a bioinformatics course homework this is a sequence alignment library fo
 Supports local and global alignments considering BLOSUM or PAM cost matrix.
 
 NOTE: 
-web interface [dna-sequence-alignment-web](https://github.com/arianpasquali/dna-sequence-alignment-web) and the
-console interface [dna-sequence-alignment-cli](https://github.com/arianpasquali/dna-sequence-alignment-cli)
+web interface [(dna-sequence-alignment-web)](https://github.com/arianpasquali/dna-sequence-alignment-web) and the
+console interface [(dna-sequence-alignment-cli)](https://github.com/arianpasquali/dna-sequence-alignment-cli)
 
 
 Build
