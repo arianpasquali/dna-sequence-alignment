@@ -4,6 +4,11 @@ dna-sequence-alignment
 Part of a bioinformatics course homework this is a sequence alignment library for DNA or proteins.
 Supports local and global alignments considering BLOSUM or PAM cost matrix.
 
+NOTE: 
+web interface [dna-sequence-alignment-web](https://github.com/arianpasquali/dna-sequence-alignment-web)
+console interface [dna-sequence-alignment-cli](https://github.com/arianpasquali/dna-sequence-alignment-cli)
+
+
 Build
 -----
 
