@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Dna-sequence-alignment by arianpasquali</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Dna-sequence-alignment</h1>
+        <p>Sequence alignment lib for DNA or proteins </p>
+
+        <p class="view"><a href="https://github.com/arianpasquali/dna-sequence-alignment">View the Project on GitHub <small>arianpasquali/dna-sequence-alignment</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/arianpasquali/dna-sequence-alignment/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/arianpasquali/dna-sequence-alignment/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/arianpasquali/dna-sequence-alignment">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a name="dna-sequence-alignment-library" class="anchor" href="#dna-sequence-alignment-library"><span class="octicon octicon-link"></span></a>Dna Sequence Alignment library</h1>
+
+<p>Part of a bioinformatics course homework this is a sequence alignment library for DNA or proteins.
+Supports local and global alignments considering BLOSUM or PAM cost matrix.</p>
+
+<h2>
+<a name="build" class="anchor" href="#build"><span class="octicon octicon-link"></span></a>Build</h2>
+
+<p>Once you clone this repo just run maven install and check test results:</p>
+
+<pre><code>mvn install test     
+</code></pre>
+
+<h2>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>Declare it as a maven dependency:</p>
+
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;pt.fcup.bioinformatics&lt;/groupId&gt;
+    &lt;artifactId&gt;dna-sequence-alignment&lt;/artifactId&gt;
+    &lt;version&gt;0.1-SNAPSHOT&lt;/version&gt;
+ &lt;/dependency&gt;
+</code></pre>
+
+<p>Example of global alignment using BLOSUM:</p>
+
+<pre><code>//Pyrococcus furiosus
+String sequenceA = "WKVSVDQDTCIGDAICASLCPDVFEMNDEGKAQPKVEVIEDEELYNCAKEAMEACPVSAI"; 
+
+//Thermococcus sibiricus
+String sequenceB = "MKVKLDKDTCIGCGVCASICPDVFEMDDDGKAKVIMEETDLECAKEAAESCPTGSI"; 
+
+GlobalAlignment ga = new GlobalAlignment();
+AlignmentResult result = ga.align(new BlosumCostMatrix(),sequenceA, sequenceB);
+
+System.out.println(result); 
+</code></pre>
+
+<p>result:</p>
+
+<pre><code>AlignmentResult{
+    method='global:blosum'
+    score=14
+
+    KVSVDQDTCIGDAICASLCPDVFEMNDEGKAQPKVEVIEDEELYNCAKEAMEACPVSAI
+    KVKLDKDTCIGCGVCASICPDVFEMDDDGKA-KVIMEETDLECAKEA--A-ESCPTGSI
+}
+</code></pre>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/arianpasquali">arianpasquali</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
