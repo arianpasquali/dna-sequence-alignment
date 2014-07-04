@@ -24,22 +24,25 @@ Declare it as a maven dependency:
 
 Example of global alignment using BLOSUM:
 
-	String sequenceA = "GAATTCAGTTA";
-    String sequenceB = "GGATCGA";
+	//Pyrococcus furiosus
+	String sequenceA = "WKVSVDQDTCIGDAICASLCPDVFEMNDEGKAQPKVEVIEDEELYNCAKEAMEACPVSAI"; 
+	
+	//Thermococcus sibiricus
+    String sequenceB = "MKVKLDKDTCIGCGVCASICPDVFEMDDDGKAKVIMEETDLECAKEAAESCPTGSI"; 
     
 	GlobalAlignment ga = new GlobalAlignment();
     AlignmentResult result = ga.align(new BlosumCostMatrix(),sequenceA, sequenceB);
-	
-	System.out.println(result);    
+
+    System.out.println(result);	
     
 result:
 
     AlignmentResult{
  		method='global:blosum'
-	 	score=4
+	 	score=14
 
-		AATTCAGTTA
-		----GATCGA
+		KVSVDQDTCIGDAICASLCPDVFEMNDEGKAQPKVEVIEDEELYNCAKEAMEACPVSAI
+		KVKLDKDTCIGCGVCASICPDVFEMDDDGKA-KVIMEETDLECAKEA--A-ESCPTGSI
 	}
     
 	 	 
